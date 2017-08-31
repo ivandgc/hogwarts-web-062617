@@ -40,8 +40,8 @@ class App extends Component {
   }
 
   handleDisplay = (name) => {
-    let newHogList = this.state.displayHogs
-    const index = this.state.displayHogs.findIndex(hog => hog.name === name)
+    let newHogList = this.state.displayHogs.slice()
+    const index = newHogList.findIndex(hog => hog.name === name)
     newHogList.splice(index, 1)
     this.setState({ displayHogs: newHogList })
   }
