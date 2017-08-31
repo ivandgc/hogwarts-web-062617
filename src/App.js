@@ -42,10 +42,7 @@ class App extends Component {
   handleDisplay = (name) => {
     let newHogList = this.state.displayHogs
     const index = this.state.displayHogs.findIndex(hog => hog.name === name)
-    console.log("index", index, "name", name)
-    console.log("new hog list before splice:", newHogList)
     newHogList.splice(index, 1)
-    console.log("new hog list after splice:", newHogList)
     this.setState({ displayHogs: newHogList })
   }
 
