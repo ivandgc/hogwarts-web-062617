@@ -1,23 +1,20 @@
 import React from 'react'
-import Hogs from '../porkers_data'
 import Hog from './Hog'
 
-export default class HogList extends React.Component {
-  state = {
-    showInfo: false
-  }
-
-  handleClick = () => {
-    this.setState({
-      showInfo: !this.state.showInfo
-    })
-  }
-
-  render(){
-    return (
-      <div className="ui grid container">
-        {Hogs.map( (hog, index) => <Hog key={index} showInfo={this.state.showInfo} hogInfo={hog} handleClick={this.handleClick}/>)}
-      </div>
-    )
-  }
+const HogList = (props) => {
+  return (
+    <div className="ui grid container">
+      {props.hogs.map( (hog, index) => {
+        return( <Hog key={index}
+          showInfo={props.showInfo}
+          hogInfo={hog}
+          handleClick={props.handleClick}
+          handleDisplay={props.handleDisplay}
+          />)
+        })
+      }
+    </div>
+  )
 }
+
+export default HogList
